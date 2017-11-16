@@ -1,0 +1,13 @@
+---
+- hosts: aruba
+  remote_user: ansible
+  gather_facts: no
+  connection: local
+  vars:
+          controller_hostname: Aruba7010
+  tasks:
+    - name: backup config
+      aruba_config:
+        lines: hostname {{ controller_hostname }}
+        backup: yes
+
